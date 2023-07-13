@@ -20,13 +20,21 @@
     padding: 40px 30px 70px;
 }
 .heading{
-    
-    font-size: larg;
     color: rgb(4, 21, 69);
     display: flex;
     align-items: center;
+    justify-content: center;
 }
 .heading img{
     width: 45px;
     margin-left: 20px;
+}
+
+@media (max-width :600px){
+    .todoApp{
+        width: 80%;
+    }
+    .heading{
+        font-size: large;
+    }
 }

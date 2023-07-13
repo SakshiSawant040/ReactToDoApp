@@ -5,33 +5,20 @@ import './Addtask.css'
 export default function AddTask() {
     const [task,getTask] = useState('');
     const [listTasks,setTask] = useState([]);
-    const ref = useRef(null);
 
     const addTask=() =>{
         console.log('clicked');
         setTask((inputTask) =>{
             return [...inputTask,task];
-    })
-
-    // useEffect(() =>{
-    //     const listtask=ref.current;
-    //       listtask.addEventListener("click",function(e){
-    //         if(e.target.tagName === "LI"){
-    //           e.target.classList.toggle("checked")
-    //         }
-    //         else if(e.target.tagName === "SPAN"){
-    //           e.target.parentElement.remove();
-    //         }
-    //       },false)
-    // })
-        
-        
+        })
+        getTask('')
 
     }
   return (
     <div>
       <div className="inputTask">
-        <input type="text"  placeholder='Add your task' id='input-box' onChange={(e)=>getTask(e.target.value)}/>
+        <input type="text"  placeholder='Add your task' id='input-box' value={task}
+        onChange={(e)=>getTask(e.target.value)}/>
         <button onClick={addTask}>Add</button>
       </div>
       
@@ -41,7 +28,7 @@ export default function AddTask() {
 
         {
               listTasks.map((element,i) =>{
-                return <li className='checked' ref={ref}>
+                return <li className='checked' >
                           {element}
                           <span>{'\u00d7'}</span>
                         </li>
